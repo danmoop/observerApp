@@ -1,5 +1,7 @@
 {
   "name": "observerApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

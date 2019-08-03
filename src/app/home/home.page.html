@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Observer
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <h3 class="abs-center">{{ connected ? 'connected' : 'not connected' }}</h3>
+
+  <div class="ion-padding abs-center" *ngIf="!connected">
+    <ion-input placeholder="Address..."></ion-input>
+    <ion-button (click)="connect()">Connect</ion-button>
+  </div>
+
+  <div class="ion-padding abs-center" *ngIf="connected">
+    <ion-button (click)="requestImage();">Take screenshot</ion-button>
+    <ion-button (click)="requestBattery();" color="secondary">Check battery</ion-button>
+    <ion-button (click)="requestPcStats();" color="tertiary">View PC stats</ion-button>
+
+    <br>  
+    <img [src]="converted_image"/>
   </div>
 </ion-content>
